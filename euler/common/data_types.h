@@ -25,11 +25,11 @@ limitations under the License.
 
 namespace euler {
 namespace common {
-
+// 节点
 typedef uint64_t NodeID;
-
+// 边
 typedef std::tuple<NodeID, NodeID, int32_t> EdgeID;
-
+// 权重
 typedef std::tuple<NodeID, float, int32_t> IDWeightPair;
 
 struct EdgeIDHashFunc {
@@ -49,7 +49,7 @@ struct EdgeIDHashFunc {
     return d * k_mul;
   }
 };
-
+// 边键值比较函数
 struct EdgeIDEqualKey {
   bool operator()(const EdgeID& key1, const EdgeID& key2) const {
     return std::get<0>(key1) == std::get<0>(key2) &&
